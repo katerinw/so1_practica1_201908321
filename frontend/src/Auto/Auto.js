@@ -19,8 +19,7 @@ export default class Auto extends Component {
         return(
             <div>
                 <Headerr/>
-                <Navbar 
-                />
+                
 
                 <div className='ui two buttons' style={estiloCargar} >
                     <AddAuto/>

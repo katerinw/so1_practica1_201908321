@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  database:
+    container_name: database
+    restart: always 
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+
+  backend:
+    container_name: backend 
+    restart: always 
+    image: katerinw/backend_p1_201908321
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    links:
+      - database
+
+  frontend:
+    container_name: frontend 
+    restart: always 
+    image: katerinw/frontend_p1_201908321
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    links:
+      - backend
