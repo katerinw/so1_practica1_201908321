@@ -13,6 +13,8 @@ services:
   backend:
     container_name: backend 
     restart: always 
+    environment:
+      MONGODB: 192.168.122.172
     image: katerinw/backend_p1_201908321
     ports:
       - "8000:8000"

@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/handlers"
@@ -170,7 +171,7 @@ func deleteAuto(response http.ResponseWriter, request *http.Request) {
 
 func main() {
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	client, _ = mongo.Connect(ctx, options.Client().ApplyURI("mongodb://192.168.1.2:27017"))
+	client, _ = mongo.Connect(ctx, options.Client().ApplyURI("mongodb://"+os.Getenv("MONGODB")+":27017"))
 
 	Direcciones()
 
